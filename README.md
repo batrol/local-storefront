@@ -1,4 +1,4 @@
-# publicidade-local
+# balcao-digital
 
 One app that brings e-commerce to the small merchants of a single city, coordinates the
 delivery, and offers a personal-shopping service for customers.
