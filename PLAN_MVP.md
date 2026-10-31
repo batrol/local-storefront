@@ -41,9 +41,9 @@ stock). Prices in integer cents.
 - [x] B2 Auth: register (user + shop with slug), login, logout, me
 - [x] B3 Categories and products CRUD, scoped to the merchant's shop
 - [x] B4 Stock adjustment with movement log, low-stock flag
-- [ ] B5 Public catalog by shop slug
-- [ ] B6 Orders: create (transactional stock decrement, validation), list, detail, status, cancel returns stock
-- [ ] B7 Feature tests for every endpoint, including cross-shop isolation
+- [x] B5 Public catalog by shop slug
+- [x] B6 Orders: create (transactional stock decrement, validation), list, detail, status, cancel returns stock
+- [x] B7 Feature tests for every endpoint, including cross-shop isolation
 
 ### Frontend
 - [ ] F1 Scaffold `web/` (Vite, TS, Tailwind 4, router, query, Vitest), API client with token

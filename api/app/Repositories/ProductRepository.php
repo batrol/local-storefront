@@ -37,6 +37,22 @@ class ProductRepository
         return $product->load('category');
     }
 
+    /**
+     * Active products of a shop for the given ids, keyed by id.
+     *
+     * @param  list<int>  $ids
+     * @return Collection<int, Product>
+     */
+    public function activeByIds(int $shopId, array $ids): Collection
+    {
+        return Product::query()
+            ->where('shop_id', $shopId)
+            ->where('active', true)
+            ->whereIn('id', $ids)
+            ->get()
+            ->keyBy('id');
+    }
+
     public function delete(Product $product): void
     {
         $product->delete();
