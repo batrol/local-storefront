@@ -14,7 +14,7 @@ const products = [
 function ui() {
   return (
     <Routes>
-      <Route path="/loja/:slug" element={<PublicShopPage />} />
+      <Route path="/shop/:slug" element={<PublicShopPage />} />
     </Routes>
   )
 }
@@ -26,21 +26,21 @@ describe('PublicShopPage', () => {
       if (url.endsWith('/products')) return { data: products }
       return { data: shop }
     })
-    renderWithProviders(ui(), '/loja/mercearia')
+    renderWithProviders(ui(), '/shop/mercearia')
 
     expect(await screen.findByText('Mercearia Central')).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Esgotado' })).toBeDisabled()
+    expect(screen.getByRole('button', { name: 'Sold out' })).toBeDisabled()
 
-    const add = screen.getByRole('button', { name: 'Adicionar' })
+    const add = screen.getByRole('button', { name: 'Add' })
     await userEvent.click(add)
     await userEvent.click(add)
-    expect(screen.getByText(/Total:.*51,80/)).toBeInTheDocument()
+    expect(screen.getByText(/Total:.*51\.80/)).toBeInTheDocument()
 
-    await userEvent.type(screen.getByLabelText('Seu nome'), 'Maria')
-    await userEvent.type(screen.getByLabelText('Telefone / WhatsApp'), '11988887777')
-    await userEvent.click(screen.getByRole('button', { name: 'Enviar pedido' }))
+    await userEvent.type(screen.getByLabelText('Your name'), 'Maria')
+    await userEvent.type(screen.getByLabelText('Phone / WhatsApp'), '11988887777')
+    await userEvent.click(screen.getByRole('button', { name: 'Send order' }))
 
-    expect(await screen.findByText('Pedido enviado!')).toBeInTheDocument()
+    expect(await screen.findByText('Order sent!')).toBeInTheDocument()
     const post = fetchMock.mock.calls.find(([, init]) => init?.method === 'POST')!
     expect(JSON.parse(String(post[1]?.body))).toMatchObject({
       customer_name: 'Maria',
@@ -51,16 +51,16 @@ describe('PublicShopPage', () => {
 
   it('asks for the address when delivery is selected', async () => {
     mockFetch((url) => (url.endsWith('/products') ? { data: products } : { data: shop }))
-    renderWithProviders(ui(), '/loja/mercearia')
-    await userEvent.click(await screen.findByRole('button', { name: 'Adicionar' }))
-    expect(screen.queryByLabelText('Endereço de entrega')).not.toBeInTheDocument()
-    await userEvent.click(screen.getByLabelText('Entrega'))
-    expect(screen.getByLabelText('Endereço de entrega')).toBeInTheDocument()
+    renderWithProviders(ui(), '/shop/mercearia')
+    await userEvent.click(await screen.findByRole('button', { name: 'Add' }))
+    expect(screen.queryByLabelText('Delivery address')).not.toBeInTheDocument()
+    await userEvent.click(screen.getByLabelText('Delivery'))
+    expect(screen.getByLabelText('Delivery address')).toBeInTheDocument()
   })
 
   it('shows a message for an unknown shop', async () => {
     mockFetch(() => ({ message: 'Not found' }), 404)
-    renderWithProviders(ui(), '/loja/nada')
-    await waitFor(() => expect(screen.getByText('Loja não encontrada.')).toBeInTheDocument())
+    renderWithProviders(ui(), '/shop/nada')
+    await waitFor(() => expect(screen.getByText('Shop not found.')).toBeInTheDocument())
   })
 })

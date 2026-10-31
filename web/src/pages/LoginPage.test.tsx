@@ -12,7 +12,7 @@ function ui() {
   return (
     <Routes>
       <Route path="/login" element={<LoginPage />} />
-      <Route path="/painel" element={<p>Painel</p>} />
+      <Route path="/dashboard" element={<p>Dashboard</p>} />
     </Routes>
   )
 }
@@ -21,27 +21,27 @@ describe('LoginPage', () => {
   it('shows validation errors without calling the API', async () => {
     const fetchMock = mockFetch(() => ({}))
     renderWithProviders(ui(), '/login')
-    await userEvent.click(screen.getByRole('button', { name: 'Entrar' }))
-    expect(await screen.findByText('E-mail inválido')).toBeInTheDocument()
+    await userEvent.click(screen.getByRole('button', { name: 'Sign in' }))
+    expect(await screen.findByText('Invalid email')).toBeInTheDocument()
     expect(fetchMock).not.toHaveBeenCalled()
   })
 
   it('logs in, stores the token and goes to the panel', async () => {
     mockFetch(() => ({ token: 'tok', user: { data: user } }))
     renderWithProviders(ui(), '/login')
-    await userEvent.type(screen.getByLabelText('E-mail'), 'ana@example.com')
-    await userEvent.type(screen.getByLabelText('Senha'), 'segredo123')
-    await userEvent.click(screen.getByRole('button', { name: 'Entrar' }))
-    await waitFor(() => expect(screen.getByText('Painel')).toBeInTheDocument())
+    await userEvent.type(screen.getByLabelText('Email'), 'ana@example.com')
+    await userEvent.type(screen.getByLabelText('Password'), 'segredo123')
+    await userEvent.click(screen.getByRole('button', { name: 'Sign in' }))
+    await waitFor(() => expect(screen.getByText('Dashboard')).toBeInTheDocument())
     expect(localStorage.getItem('pl.token')).toBe('tok')
   })
 
   it('shows the API error on bad credentials', async () => {
-    mockFetch(() => ({ message: 'Credenciais inválidas', errors: { email: ['Credenciais inválidas'] } }), 422)
+    mockFetch(() => ({ message: 'Invalid credentials', errors: { email: ['Invalid credentials'] } }), 422)
     renderWithProviders(ui(), '/login')
-    await userEvent.type(screen.getByLabelText('E-mail'), 'ana@example.com')
-    await userEvent.type(screen.getByLabelText('Senha'), 'errada')
-    await userEvent.click(screen.getByRole('button', { name: 'Entrar' }))
-    expect(await screen.findByRole('alert')).toHaveTextContent('Credenciais inválidas')
+    await userEvent.type(screen.getByLabelText('Email'), 'ana@example.com')
+    await userEvent.type(screen.getByLabelText('Password'), 'errada')
+    await userEvent.click(screen.getByRole('button', { name: 'Sign in' }))
+    expect(await screen.findByRole('alert')).toHaveTextContent('Invalid credentials')
   })
 })

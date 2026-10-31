@@ -11,16 +11,16 @@ export function App() {
   return (
     <Routes>
       <Route path="/login" element={<LoginPage />} />
-      <Route path="/cadastro" element={<RegisterPage />} />
-      <Route path="/loja/:slug" element={<PublicShopPage />} />
+      <Route path="/register" element={<RegisterPage />} />
+      <Route path="/shop/:slug" element={<PublicShopPage />} />
       <Route element={<RequireAuth />}>
-        <Route path="/painel" element={<AdminLayout />}>
-          <Route index element={<Navigate to="produtos" replace />} />
-          <Route path="produtos" element={<ProductsPage />} />
-          <Route path="pedidos" element={<OrdersPage />} />
+        <Route path="/dashboard" element={<AdminLayout />}>
+          <Route index element={<Navigate to="products" replace />} />
+          <Route path="products" element={<ProductsPage />} />
+          <Route path="orders" element={<OrdersPage />} />
         </Route>
       </Route>
-      <Route path="*" element={<Navigate to="/painel" replace />} />
+      <Route path="*" element={<Navigate to="/dashboard" replace />} />
     </Routes>
   )
 }

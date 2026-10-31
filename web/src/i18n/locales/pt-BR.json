@@ -1,0 +1,96 @@
+{
+  "common": {
+    "loading": "Carregando…",
+    "language": "Idioma",
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "unexpectedError": "Erro inesperado"
+  },
+  "auth": {
+    "signIn": "Entrar",
+    "signOut": "Sair",
+    "signUp": "Cadastre-se",
+    "email": "E-mail",
+    "password": "Senha",
+    "noShop": "Ainda não tem loja?",
+    "haveAccount": "Já tem conta?",
+    "createShop": "Criar sua loja",
+    "createShopButton": "Criar loja",
+    "yourName": "Seu nome",
+    "shopName": "Nome da loja",
+    "phone": "Telefone / WhatsApp",
+    "invalidEmail": "E-mail inválido",
+    "enterPassword": "Informe a senha",
+    "enterName": "Informe seu nome",
+    "enterShopName": "Informe o nome da loja",
+    "passwordMin": "Mínimo de 8 caracteres"
+  },
+  "layout": {
+    "products": "Produtos",
+    "orders": "Pedidos",
+    "shopLink": "Link da sua loja:"
+  },
+  "products": {
+    "title": "Produtos e estoque",
+    "newCategory": "Nova categoria",
+    "addCategory": "Adicionar categoria",
+    "newProduct": "Novo produto",
+    "categories": "Categorias: {{list}}",
+    "empty": "Nenhum produto ainda. Cadastre o primeiro.",
+    "productName": "Nome do produto",
+    "price": "Preço (R$)",
+    "pricePlaceholder": "19,90",
+    "initialStock": "Estoque inicial",
+    "category": "Categoria",
+    "noCategory": "Sem categoria",
+    "save": "Salvar produto",
+    "invalidPrice": "Preço inválido. Use um formato como 19,90.",
+    "lowStock": "Estoque baixo",
+    "decrease": "Diminuir estoque de {{name}}",
+    "increase": "Aumentar estoque de {{name}}",
+    "confirmDelete": "Excluir {{name}}?"
+  },
+  "orders": {
+    "title": "Pedidos",
+    "empty": "Nenhum pedido ainda. Compartilhe o link da sua loja.",
+    "heading": "Pedido #{{id}} · {{name}}",
+    "pickup": "Retirada na loja",
+    "delivery": "Entrega: {{address}}",
+    "status": {
+      "pending": "Novo",
+      "confirmed": "Confirmado",
+      "ready": "Pronto",
+      "completed": "Concluído",
+      "cancelled": "Cancelado"
+    },
+    "action": {
+      "confirmed": "Confirmar",
+      "ready": "Marcar pronto",
+      "completed": "Concluir",
+      "cancelled": "Cancelar"
+    }
+  },
+  "shop": {
+    "notFound": "Loja não encontrada.",
+    "contact": "Contato: {{phone}}",
+    "add": "Adicionar",
+    "soldOut": "Esgotado",
+    "noProducts": "Esta loja ainda não tem produtos.",
+    "cart": "Carrinho",
+    "yourOrder": "Seu pedido",
+    "less": "Menos {{name}}",
+    "more": "Mais {{name}}",
+    "total": "Total: {{total}}",
+    "yourName": "Seu nome",
+    "phone": "Telefone / WhatsApp",
+    "howToReceive": "Como receber",
+    "pickup": "Retirar na loja",
+    "delivery": "Entrega",
+    "address": "Endereço de entrega",
+    "notes": "Observações",
+    "send": "Enviar pedido",
+    "sentTitle": "Pedido enviado!",
+    "sentBody": "Seu pedido #{{id}} foi enviado para {{shop}}. Total: {{total}}.",
+    "sentHint": "A loja entrará em contato pelo telefone informado."
+  }
+}

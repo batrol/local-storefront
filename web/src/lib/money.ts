@@ -1,5 +1,7 @@
+import i18n from '@/i18n'
+
 export function formatCents(cents: number): string {
-  return (cents / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+  return (cents / 100).toLocaleString(i18n.language, { style: 'currency', currency: 'BRL' })
 }
 
 /** "19,90", "19.90" or "1.250,00" -> cents. Returns null when not a valid amount. */

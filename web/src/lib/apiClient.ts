@@ -1,3 +1,5 @@
+import i18n from '@/i18n'
+
 const TOKEN_KEY = 'pl.token'
 const BASE = import.meta.env.VITE_API_URL ?? ''
 
@@ -25,6 +27,7 @@ export async function api<T>(method: string, path: string, body?: Json): Promise
     method,
     headers: {
       Accept: 'application/json',
+      'Accept-Language': i18n.language,
       ...(body ? { 'Content-Type': 'application/json' } : {}),
       ...(token ? { Authorization: `Bearer ${token}` } : {}),
     },
@@ -34,7 +37,7 @@ export async function api<T>(method: string, path: string, body?: Json): Promise
   if (res.status === 204) return undefined as T
   const data = await res.json().catch(() => ({}))
   if (!res.ok) {
-    throw new ApiError(res.status, data.message ?? 'Erro inesperado', data.errors ?? {})
+    throw new ApiError(res.status, data.message ?? i18n.t('common.unexpectedError'), data.errors ?? {})
   }
   return data as T
 }
@@ -45,5 +48,5 @@ export function firstError(e: unknown): string {
     const first = Object.values(e.errors)[0]?.[0]
     return first ?? e.message
   }
-  return 'Erro inesperado'
+  return i18n.t('common.unexpectedError')
 }

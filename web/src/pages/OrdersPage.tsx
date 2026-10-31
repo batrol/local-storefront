@@ -4,24 +4,18 @@ import { useOrders, useSetOrderStatus } from '@/lib/hooks'
 import { formatCents } from '@/lib/money'
 import type { Order, OrderStatus } from '@/lib/types'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
-export const STATUS_LABEL: Record<OrderStatus, string> = {
-  pending: 'Novo',
-  confirmed: 'Confirmado',
-  ready: 'Pronto',
-  completed: 'Concluído',
-  cancelled: 'Cancelado',
-}
-
-const NEXT: Record<OrderStatus, { status: OrderStatus; label: string }[]> = {
-  pending: [{ status: 'confirmed', label: 'Confirmar' }, { status: 'cancelled', label: 'Cancelar' }],
-  confirmed: [{ status: 'ready', label: 'Marcar pronto' }, { status: 'cancelled', label: 'Cancelar' }],
-  ready: [{ status: 'completed', label: 'Concluir' }, { status: 'cancelled', label: 'Cancelar' }],
+const NEXT: Record<OrderStatus, OrderStatus[]> = {
+  pending: ['confirmed', 'cancelled'],
+  confirmed: ['ready', 'cancelled'],
+  ready: ['completed', 'cancelled'],
   completed: [],
   cancelled: [],
 }
 
 function OrderCard({ order }: { order: Order }) {
+  const { t } = useTranslation()
   const setStatus = useSetOrderStatus()
   const [error, setError] = useState('')
 
@@ -37,13 +31,12 @@ function OrderCard({ order }: { order: Order }) {
   return (
     <Card>
       <div className="flex flex-wrap items-center gap-2">
-        <p className="mr-auto font-semibold">
-          Pedido #{order.id} · {order.customer_name}
-        </p>
-        <span className="rounded bg-slate-100 px-2 py-0.5 text-xs font-semibold">{STATUS_LABEL[order.status]}</span>
+        <p className="mr-auto font-semibold">{t('orders.heading', { id: order.id, name: order.customer_name })}</p>
+        <span className="rounded bg-slate-100 px-2 py-0.5 text-xs font-semibold">{t(`orders.status.${order.status}`)}</span>
       </div>
       <p className="text-sm text-slate-600">
-        {order.customer_phone} · {order.fulfillment === 'delivery' ? `Entrega: ${order.address}` : 'Retirada na loja'}
+        {order.customer_phone} ·{' '}
+        {order.fulfillment === 'delivery' ? t('orders.delivery', { address: order.address }) : t('orders.pickup')}
       </p>
       <ul className="my-2 text-sm">
         {order.items.map((i, idx) => (
@@ -55,9 +48,9 @@ function OrderCard({ order }: { order: Order }) {
       {order.notes && <p className="mb-2 text-sm italic">“{order.notes}”</p>}
       <div className="flex flex-wrap items-center gap-2">
         <p className="mr-auto font-bold">{formatCents(order.total_cents)}</p>
-        {NEXT[order.status].map((n) => (
-          <GhostButton key={n.status} onClick={() => void change(n.status)} disabled={setStatus.isPending}>
-            {n.label}
+        {NEXT[order.status].map((next) => (
+          <GhostButton key={next} onClick={() => void change(next)} disabled={setStatus.isPending}>
+            {t(`orders.action.${next}`)}
           </GhostButton>
         ))}
       </div>
@@ -67,13 +60,14 @@ function OrderCard({ order }: { order: Order }) {
 }
 
 export function OrdersPage() {
+  const { t } = useTranslation()
   const orders = useOrders()
 
   return (
     <div className="space-y-3">
-      <h2 className="text-lg font-semibold">Pedidos</h2>
-      {orders.isLoading && <p className="text-slate-500">Carregando…</p>}
-      {orders.data?.length === 0 && <p className="text-slate-500">Nenhum pedido ainda. Compartilhe o link da sua loja.</p>}
+      <h2 className="text-lg font-semibold">{t('orders.title')}</h2>
+      {orders.isLoading && <p className="text-slate-500">{t('common.loading')}</p>}
+      {orders.data?.length === 0 && <p className="text-slate-500">{t('orders.empty')}</p>}
       {orders.data?.map((o) => <OrderCard key={o.id} order={o} />)}
     </div>
   )

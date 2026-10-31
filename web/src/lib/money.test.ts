@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import i18n from '@/i18n'
 import { formatCents, parseToCents } from './money'
 
 describe('money', () => {
@@ -15,7 +16,9 @@ describe('money', () => {
     expect(parseToCents('1,234')).toBeNull()
   })
 
-  it('formats cents as BRL', () => {
+  it('formats cents as BRL using the current language', async () => {
+    expect(formatCents(1990)).toMatch(/R\$\s?19\.90/)
+    await i18n.changeLanguage('pt-BR')
     expect(formatCents(1990)).toMatch(/R\$\s?19,90/)
   })
 })

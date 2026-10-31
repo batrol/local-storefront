@@ -22,9 +22,9 @@ describe('ProductsPage', () => {
     renderWithProviders(<ProductsPage />)
 
     expect(await screen.findByText('Cabo USB')).toBeInTheDocument()
-    expect(screen.getByText('Estoque baixo')).toBeInTheDocument()
+    expect(screen.getByText('Low stock')).toBeInTheDocument()
 
-    await userEvent.click(screen.getByRole('button', { name: 'Aumentar estoque de Cabo USB' }))
+    await userEvent.click(screen.getByRole('button', { name: 'Increase stock of Cabo USB' }))
     const call = fetchMock.mock.calls.find(([u]) => String(u).includes('/products/3/stock'))!
     expect(JSON.parse(String(call[1]?.body))).toMatchObject({ delta: 1 })
   })
@@ -32,10 +32,10 @@ describe('ProductsPage', () => {
   it('rejects an invalid price before calling the API', async () => {
     mockFetch((url) => (url.endsWith('/categories') ? { data: [] } : { data: [] }))
     renderWithProviders(<ProductsPage />)
-    await userEvent.click(await screen.findByRole('button', { name: 'Novo produto' }))
-    await userEvent.type(screen.getByLabelText('Nome do produto'), 'Teste')
-    await userEvent.type(screen.getByLabelText('Preço (R$)'), 'abc')
-    await userEvent.click(screen.getByRole('button', { name: 'Salvar produto' }))
-    expect(await screen.findByRole('alert')).toHaveTextContent('Preço inválido')
+    await userEvent.click(await screen.findByRole('button', { name: 'New product' }))
+    await userEvent.type(screen.getByLabelText('Product name'), 'Teste')
+    await userEvent.type(screen.getByLabelText('Price (R$)'), 'abc')
+    await userEvent.click(screen.getByRole('button', { name: 'Save product' }))
+    expect(await screen.findByRole('alert')).toHaveTextContent('Invalid price')
   })
 })

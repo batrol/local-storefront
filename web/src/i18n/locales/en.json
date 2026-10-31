@@ -1,0 +1,96 @@
+{
+  "common": {
+    "loading": "Loading…",
+    "language": "Language",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "unexpectedError": "Unexpected error"
+  },
+  "auth": {
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "signUp": "Sign up",
+    "email": "Email",
+    "password": "Password",
+    "noShop": "No shop yet?",
+    "haveAccount": "Already have an account?",
+    "createShop": "Create your shop",
+    "createShopButton": "Create shop",
+    "yourName": "Your name",
+    "shopName": "Shop name",
+    "phone": "Phone / WhatsApp",
+    "invalidEmail": "Invalid email",
+    "enterPassword": "Enter your password",
+    "enterName": "Enter your name",
+    "enterShopName": "Enter the shop name",
+    "passwordMin": "At least 8 characters"
+  },
+  "layout": {
+    "products": "Products",
+    "orders": "Orders",
+    "shopLink": "Your shop link:"
+  },
+  "products": {
+    "title": "Products and stock",
+    "newCategory": "New category",
+    "addCategory": "Add category",
+    "newProduct": "New product",
+    "categories": "Categories: {{list}}",
+    "empty": "No products yet. Add the first one.",
+    "productName": "Product name",
+    "price": "Price (R$)",
+    "pricePlaceholder": "19.90",
+    "initialStock": "Initial stock",
+    "category": "Category",
+    "noCategory": "No category",
+    "save": "Save product",
+    "invalidPrice": "Invalid price. Use a format like 19.90.",
+    "lowStock": "Low stock",
+    "decrease": "Decrease stock of {{name}}",
+    "increase": "Increase stock of {{name}}",
+    "confirmDelete": "Delete {{name}}?"
+  },
+  "orders": {
+    "title": "Orders",
+    "empty": "No orders yet. Share your shop link.",
+    "heading": "Order #{{id}} · {{name}}",
+    "pickup": "Pick up at the shop",
+    "delivery": "Delivery: {{address}}",
+    "status": {
+      "pending": "New",
+      "confirmed": "Confirmed",
+      "ready": "Ready",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "action": {
+      "confirmed": "Confirm",
+      "ready": "Mark as ready",
+      "completed": "Complete",
+      "cancelled": "Cancel"
+    }
+  },
+  "shop": {
+    "notFound": "Shop not found.",
+    "contact": "Contact: {{phone}}",
+    "add": "Add",
+    "soldOut": "Sold out",
+    "noProducts": "This shop has no products yet.",
+    "cart": "Cart",
+    "yourOrder": "Your order",
+    "less": "Less {{name}}",
+    "more": "More {{name}}",
+    "total": "Total: {{total}}",
+    "yourName": "Your name",
+    "phone": "Phone / WhatsApp",
+    "howToReceive": "How to receive",
+    "pickup": "Pick up at the shop",
+    "delivery": "Delivery",
+    "address": "Delivery address",
+    "notes": "Notes",
+    "send": "Send order",
+    "sentTitle": "Order sent!",
+    "sentBody": "Your order #{{id}} was sent to {{shop}}. Total: {{total}}.",
+    "sentHint": "The shop will contact you at the phone number you provided."
+  }
+}
