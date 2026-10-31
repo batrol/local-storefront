@@ -78,11 +78,26 @@ class AuthTest extends TestCase
         $this->getJson('/api/me')->assertUnauthorized();
     }
 
-    public function test_validation_messages_are_in_portuguese(): void
+    public function test_messages_are_in_english_by_default(): void
     {
         $this->postJson('/api/auth/login', [])
             ->assertUnprocessable()
-            ->assertJsonPath('errors.email.0', 'O campo e-mail é obrigatório.');
+            ->assertJsonPath('errors.email.0', 'The email field is required.');
+    }
+
+    public function test_messages_follow_the_accept_language_header(): void
+    {
+        foreach (['pt-BR', 'pt-BR,pt;q=0.9,en;q=0.8', 'pt'] as $header) {
+            $this->postJson('/api/auth/login', [], ['Accept-Language' => $header])
+                ->assertUnprocessable()
+                ->assertJsonPath('errors.email.0', 'O campo e-mail é obrigatório.');
+        }
+
+        $this->postJson('/api/auth/login', ['email' => 'x@example.com', 'password' => 'wrong-password'], ['Accept-Language' => 'pt-BR'])
+            ->assertJsonPath('errors.email.0', 'Credenciais inválidas.');
+
+        $this->postJson('/api/auth/login', [], ['Accept-Language' => 'fr'])
+            ->assertJsonPath('errors.email.0', 'The email field is required.');
     }
 
     public function test_guest_gets_401_even_without_json_accept_header(): void

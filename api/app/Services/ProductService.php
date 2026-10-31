@@ -58,7 +58,7 @@ class ProductService
     private function assertCategoryBelongsToShop(int $shopId, mixed $categoryId): void
     {
         if ($categoryId !== null && ! $this->categories->existsForShop($shopId, (int) $categoryId)) {
-            throw ValidationException::withMessages(['category_id' => ['Categoria inválida.']]);
+            throw ValidationException::withMessages(['category_id' => [__('Invalid category.')]]);
         }
     }
 }

@@ -47,7 +47,7 @@ class AuthService
         $user = $this->users->findByEmail($email);
 
         if (! $user || ! Hash::check($password, $user->password)) {
-            throw ValidationException::withMessages(['email' => ['Credenciais inválidas.']]);
+            throw ValidationException::withMessages(['email' => [__('Invalid credentials.')]]);
         }
 
         return ['user' => $user->load('shop'), 'token' => $user->createToken('web')->plainTextToken];

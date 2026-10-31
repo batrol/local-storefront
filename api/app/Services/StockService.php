@@ -20,7 +20,7 @@ class StockService
             $balance = $locked->stock + $delta;
 
             if ($balance < 0) {
-                throw ValidationException::withMessages(['delta' => ['Estoque insuficiente.']]);
+                throw ValidationException::withMessages(['delta' => [__('Insufficient stock.')]]);
             }
 
             $locked->update(['stock' => $balance]);

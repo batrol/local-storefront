@@ -1,0 +1,14 @@
+{
+    "Invalid credentials.": "Credenciais inválidas.",
+    "Insufficient stock.": "Estoque insuficiente.",
+    "Insufficient stock for :name.": "Estoque insuficiente para :name.",
+    "Invalid category.": "Categoria inválida.",
+    "One or more products are unavailable.": "Um ou mais produtos estão indisponíveis.",
+    "Address is required for delivery.": "O endereço é obrigatório para entrega.",
+    "Cannot change from :from to :to.": "Não é possível mudar de :from para :to.",
+    "new": "novo",
+    "confirmed": "confirmado",
+    "ready": "pronto",
+    "completed": "concluído",
+    "cancelled": "cancelado"
+}
