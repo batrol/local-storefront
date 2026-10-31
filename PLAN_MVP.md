@@ -37,8 +37,8 @@ stock). Prices in integer cents.
 ## Tasks (check when merged and working)
 
 ### Backend
-- [ ] B1 Scaffold `api/`, SQLite, Sanctum, Pint, Larastan, architecture notes
-- [ ] B2 Auth: register (user + shop with slug), login, logout, me
+- [x] B1 Scaffold `api/`, SQLite, Sanctum, Pint, Larastan, architecture notes
+- [x] B2 Auth: register (user + shop with slug), login, logout, me
 - [ ] B3 Categories and products CRUD, scoped to the merchant's shop
 - [ ] B4 Stock adjustment with movement log, low-stock flag
 - [ ] B5 Public catalog by shop slug
