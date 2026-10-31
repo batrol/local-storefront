@@ -5,13 +5,13 @@ works end to end and add one of the three services per version.
 
 ## MVP (v0.1): one merchant sells through a link
 - [ ] Choose and document the tech stack (shared API + mobile app + web app); skeleton, lint, tests, CI
-- [ ] Merchant login (single role)
+- [x] Merchant login (single role)
 - [ ] Products and categories (name, price, photo, description)
-- [ ] Public catalog page per merchant on the web (shareable link)
+- [x] Public catalog page per merchant on the web (shareable link)
 - [ ] Merchant web panel and mobile app, both on the same API
-- [ ] Cart and order creation (customer name + phone, pickup or delivery)
-- [ ] Order list for the merchant with status changes
-- [ ] Basic stock maintained in the app: set/adjust quantity per product, automatic decrement on order, low-stock flag
+- [x] Cart and order creation (customer name + phone, pickup or delivery)
+- [x] Order list for the merchant with status changes
+- [x] Basic stock maintained in the app: set/adjust quantity per product, automatic decrement on order, low-stock flag
 
 ## v0.2: stock and order reliability
 - [ ] Stock reservation on order, release on cancel, movement history

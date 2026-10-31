@@ -54,8 +54,8 @@ stock). Prices in integer cents.
 - [x] F6 Component tests for the main flows
 
 ### Closing
-- [ ] D1 README run instructions, `.env.example` for api and web
-- [ ] D2 End-to-end check by hand (register → product → public order → stock drops)
+- [x] D1 README run instructions, `.env.example` for api and web
+- [x] D2 End-to-end check by hand (register → product → public order → stock drops)
 
 ## Estado
 
