@@ -34,11 +34,11 @@ class OrderService
 
         $products = $this->products->activeByIds($shop->id, array_keys($quantities));
         if ($products->count() !== count($quantities)) {
-            throw ValidationException::withMessages(['items' => ['One or more products are unavailable.']]);
+            throw ValidationException::withMessages(['items' => ['Um ou mais produtos estão indisponíveis.']]);
         }
 
         if ($data['fulfillment'] === 'delivery' && blank($data['address'] ?? null)) {
-            throw ValidationException::withMessages(['address' => ['Address is required for delivery.']]);
+            throw ValidationException::withMessages(['address' => ['O endereço é obrigatório para entrega.']]);
         }
 
         return DB::transaction(function () use ($shop, $data, $quantities, $products) {
@@ -68,10 +68,10 @@ class OrderService
 
             foreach ($quantities as $productId => $qty) {
                 try {
-                    $this->stock->adjust($products[$productId], -$qty, "order #{$order->id}");
+                    $this->stock->adjust($products[$productId], -$qty, "pedido #{$order->id}");
                 } catch (ValidationException) {
                     throw ValidationException::withMessages([
-                        'items' => ["Insufficient stock for {$products[$productId]->name}."],
+                        'items' => ["Estoque insuficiente para {$products[$productId]->name}."],
                     ]);
                 }
             }
@@ -99,14 +99,14 @@ class OrderService
 
             if (! $order->status->canBecome($target)) {
                 throw ValidationException::withMessages([
-                    'status' => ["Cannot change from {$order->status->value} to {$target->value}."],
+                    'status' => ["Não é possível mudar de {$order->status->label()} para {$target->label()}."],
                 ]);
             }
 
             if ($target === OrderStatus::Cancelled) {
                 foreach ($order->items as $item) {
                     if ($item->product) {
-                        $this->stock->adjust($item->product, $item->quantity, "order #{$order->id} cancelled");
+                        $this->stock->adjust($item->product, $item->quantity, "pedido #{$order->id} cancelado");
                     }
                 }
             }

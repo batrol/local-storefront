@@ -1,13 +1,14 @@
 # api
 
-Laravel 13 REST API (PHP 8.5). Three layers: Controller → Service → Repository.
+API REST em Laravel 13 (PHP 8.5). Três camadas: Controller → Service → Repository.
+Mensagens de validação e de erro em português do Brasil (`lang/pt_BR`).
 
 ```bash
 composer install
 cp .env.example .env && php artisan key:generate
 php artisan migrate
 php artisan serve          # http://127.0.0.1:8000
-php artisan test           # test suite (SQLite in memory)
-vendor/bin/pint --test     # formatting
-vendor/bin/phpstan analyse # static analysis, level 6
+php artisan test           # testes (SQLite em memória)
+vendor/bin/pint --test     # formatação
+vendor/bin/phpstan analyse # análise estática, nível 6
 ```

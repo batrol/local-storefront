@@ -78,6 +78,13 @@ class AuthTest extends TestCase
         $this->getJson('/api/me')->assertUnauthorized();
     }
 
+    public function test_validation_messages_are_in_portuguese(): void
+    {
+        $this->postJson('/api/auth/login', [])
+            ->assertUnprocessable()
+            ->assertJsonPath('errors.email.0', 'O campo e-mail é obrigatório.');
+    }
+
     public function test_guest_gets_401_even_without_json_accept_header(): void
     {
         $this->get('/api/me')->assertUnauthorized();

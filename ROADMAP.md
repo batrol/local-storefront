@@ -1,49 +1,49 @@
 # Roadmap
 
-Check an item only when it is merged and working. We start with the smallest slice that
-works end to end and add one of the three services per version.
+Marque um item só quando ele estiver integrado e funcionando. Começamos pela menor fatia que
+funciona de ponta a ponta e acrescentamos um dos três serviços a cada versão.
 
-## MVP (v0.1): one merchant sells through a link
-- [x] Choose and document the tech stack; API and web skeletons, lint, tests, CI (mobile wrapper still to do)
-- [x] Merchant login (single role)
-- [ ] Products and categories (name, price, photo, description)
-- [x] Public catalog page per merchant on the web (shareable link)
-- [ ] Merchant web panel and mobile app, both on the same API
-- [x] Cart and order creation (customer name + phone, pickup or delivery)
-- [x] Order list for the merchant with status changes
-- [x] Basic stock maintained in the app: set/adjust quantity per product, automatic decrement on order, low-stock flag
+## MVP (v0.1): um comerciante vende por um link
+- [x] Escolher e documentar as tecnologias; esqueletos da API e do web, lint, testes, CI (falta o empacotamento mobile)
+- [x] Login do comerciante (um único perfil)
+- [ ] Produtos e categorias (nome, preço, foto, descrição)
+- [x] Página pública de catálogo por comerciante na web (link compartilhável)
+- [ ] Painel web do comerciante e app mobile, ambos na mesma API
+- [x] Carrinho e criação de pedido (nome e telefone do cliente, retirada ou entrega)
+- [x] Lista de pedidos do comerciante com mudança de status
+- [x] Estoque básico mantido no app: definir/ajustar quantidade por produto, baixa automática no pedido, aviso de estoque baixo
 
-## v0.2: stock and order reliability
-- [ ] Stock reservation on order, release on cancel, movement history
-- [ ] Full order state machine and status tracking page for the customer
-- [ ] In-store sales with stock write-off
-- [ ] Stock maintenance from the phone: quick entry/exit, adjustment with reason, inventory count
-- [ ] Barcode scan to find a product or add stock
-- [ ] Low-stock alerts to the merchant
-- [ ] Order notification to the merchant
+## v0.2: confiabilidade de estoque e pedidos
+- [ ] Reserva de estoque no pedido, devolução no cancelamento, histórico de movimentações
+- [ ] Máquina de estados completa do pedido e página de acompanhamento para o cliente
+- [ ] Vendas em loja com baixa de estoque
+- [ ] Manutenção de estoque pelo celular: entrada/saída rápida, ajuste com motivo, contagem de inventário
+- [ ] Leitura de código de barras para achar um produto ou dar entrada no estoque
+- [ ] Alertas de estoque baixo para o comerciante
+- [ ] Notificação de pedido para o comerciante
 
-## v0.3: delivery coordinated by the app
-- [ ] Courier role and registration (mobile app first)
-- [ ] Delivery request created from an order (pickup address, destination, fee)
-- [ ] Assignment to a courier (manual first, then automatic)
-- [ ] Delivery status flow: assigned, picked up, on the way, delivered
-- [ ] Delivery confirmation (code or photo) and courier history
+## v0.3: entrega coordenada pelo app
+- [ ] Perfil e cadastro do entregador (primeiro no app mobile)
+- [ ] Solicitação de entrega criada a partir de um pedido (endereço de retirada, destino, taxa)
+- [ ] Atribuição a um entregador (manual primeiro, depois automática)
+- [ ] Fluxo de status da entrega: atribuída, coletada, a caminho, entregue
+- [ ] Confirmação de entrega (código ou foto) e histórico do entregador
 
-## v0.4: multi-merchant platform
-- [ ] Several merchants on one installation, isolated data
-- [ ] Operator panel to onboard and support merchants
-- [ ] Delivery areas, fees and deadlines
-- [ ] Audit history of actions
+## v0.4: plataforma com vários comerciantes
+- [ ] Vários comerciantes em uma mesma instalação, com dados isolados
+- [ ] Painel do operador para cadastrar e dar suporte aos comerciantes
+- [ ] Áreas de entrega, taxas e prazos
+- [ ] Histórico de auditoria das ações
 
-## v0.5: shopping service
-- [ ] Customer creates a shopping request (list of items, shops, budget)
-- [ ] Shopper accepts, buys, reports price changes or missing items
-- [ ] Customer approval of substitutions and final total
-- [ ] Delivery of the purchase reusing the v0.3 flow
+## v0.5: serviço de compras
+- [ ] O cliente cria um pedido de compra (lista de itens, lojas, orçamento)
+- [ ] O comprador aceita, compra e avisa sobre mudança de preço ou item em falta
+- [ ] O cliente aprova substituições e o total final
+- [ ] Entrega da compra reaproveitando o fluxo da v0.3
 
-## Later
-- [ ] Online payment (PIX) and payouts
-- [ ] Ratings for merchants, couriers and shoppers
-- [ ] Customer accounts and order history
-- [ ] Reports (sales, stock, deliveries)
-- [ ] Backups and security review
+## Depois
+- [ ] Pagamento online (PIX) e repasses
+- [ ] Avaliações de comerciantes, entregadores e compradores
+- [ ] Contas de cliente e histórico de pedidos
+- [ ] Relatórios (vendas, estoque, entregas)
+- [ ] Backups e revisão de segurança

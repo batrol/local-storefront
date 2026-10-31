@@ -1,50 +1,51 @@
-# balcao-digital
+# local-storefront
 
-One app that brings e-commerce to the small merchants of a single city, coordinates the
-delivery, and offers a personal-shopping service for customers.
+Um app que leva o e-commerce para os pequenos comerciantes de uma cidade, coordena a
+entrega e oferece um serviço de compras para os clientes.
 
-> **Status: MVP in progress.** Design started on 2026-08-24 (first diagram in [`docs/`](docs/)).
-> Code is built following [`ROADMAP.md`](ROADMAP.md) and [`PLAN_MVP.md`](PLAN_MVP.md). Nothing is
-> claimed as implemented until it is checked off there.
+> **Status: MVP em andamento.** O desenho começou em 24/08/2026 (primeiro diagrama em [`docs/`](docs/)).
+> O código segue o [`ROADMAP.md`](ROADMAP.md) e o [`PLAN_MVP.md`](PLAN_MVP.md). Nada é dado como
+> pronto até estar marcado lá.
 
-## The idea
+## A ideia
 
-Available as a **mobile app and on the web**, sharing the same backend and data.
+Disponível como **app mobile e na web**, com o mesmo backend e os mesmos dados.
 
-Three services in a single app, focused on one city and on close local support:
+Três serviços em um só app, focados em uma cidade e em suporte local próximo:
 
-1. **E-commerce for small merchants.** Each shop gets a catalog, stock control, order
-   management and a shareable order link, without needing its own online store. Stock is
-   maintained from the app or the web panel: entries, exits, adjustments and counts.
-2. **Delivery coordinated by the app.** Orders are dispatched to local couriers, with
-   assignment, status tracking and delivery confirmation.
-3. **Shopping service for the customer.** The customer asks for items (from one or several
-   shops) and a shopper buys and delivers them.
+1. **E-commerce para pequenos comerciantes.** Cada loja tem catálogo, controle de estoque,
+   gestão de pedidos e um link de pedido para compartilhar, sem precisar de loja virtual
+   própria. O estoque é mantido pelo app ou pelo painel web: entradas, saídas, ajustes e
+   contagens.
+2. **Entrega coordenada pelo app.** Os pedidos são despachados para entregadores locais, com
+   atribuição, acompanhamento de status e confirmação de entrega.
+3. **Serviço de compras para o cliente.** O cliente pede itens (de uma ou várias lojas) e um
+   comprador faz a compra e entrega.
 
-## Who it is for
+## Para quem é
 
-- **Merchants** of the city: sell online, manage stock and orders.
-- **Customers:** order from local shops, follow the delivery, or ask someone to shop for them.
-- **Couriers / shoppers:** receive and complete deliveries and shopping requests.
-- **Platform operator:** onboards merchants and gives them direct local support.
+- **Comerciantes** da cidade: vendem online e gerenciam estoque e pedidos.
+- **Clientes:** pedem de lojas locais, acompanham a entrega ou pedem para alguém comprar por eles.
+- **Entregadores / compradores:** recebem e concluem entregas e pedidos de compra.
+- **Operador da plataforma:** cadastra os comerciantes e dá suporte direto a eles.
 
-## Planned modules
+## Módulos planejados
 
-Catalog · Stock · Orders · Delivery coordination · Shopping requests · Customers · Admin,
-plus authentication, notifications, audit history and reports. Delivery order (MVP first,
-then versions) is in [`ROADMAP.md`](ROADMAP.md).
+Catálogo · Estoque · Pedidos · Coordenação de entregas · Pedidos de compra · Clientes · Admin,
+além de autenticação, notificações, histórico de auditoria e relatórios. A ordem de entrega
+(MVP primeiro, depois as versões) está no [`ROADMAP.md`](ROADMAP.md).
 
-## Tech stack
+## Tecnologias
 
-- `api/`: Laravel 13 (PHP 8.5), Sanctum token auth, SQLite in dev and tests, three layers
-  (Controller → Service → Repository). PHPUnit, Pint and Larastan.
+- `api/`: Laravel 13 (PHP 8.5), autenticação por token com Sanctum, SQLite em desenvolvimento
+  e testes, três camadas (Controller → Service → Repository). PHPUnit, Pint e Larastan.
 - `web/`: React 19, Vite, TypeScript, Tailwind 4, TanStack Query, react-hook-form + zod,
   React Router, Vitest + Testing Library.
-- Mobile: the web app will be wrapped with Capacitor after the MVP screens are done.
+- Mobile: o app web será empacotado com Capacitor depois que as telas do MVP estiverem prontas.
 
-## How to run
+## Como rodar
 
-API (needs PHP 8.5 and Composer):
+API (precisa de PHP 8.5 e Composer):
 
 ```sh
 cd api
@@ -57,23 +58,24 @@ php artisan serve            # http://127.0.0.1:8000
 php artisan test             # PHPUnit
 ```
 
-Web (needs Node 22+):
+Web (precisa de Node 22+):
 
 ```sh
 cd web
-cp .env.example .env         # optional: VITE_API_URL is empty in dev, Vite proxies /api
+cp .env.example .env         # opcional: VITE_API_URL fica vazio em dev, o Vite faz proxy de /api
 npm install
 npm run dev                  # http://localhost:8080
 npm test                     # Vitest
 ```
 
-Open `/cadastro` to create a merchant and shop; the public storefront is at `/loja/<shop-slug>`.
-Never commit real secrets: `.env` files are ignored.
+Abra `/cadastro` para criar um comerciante e a loja; a vitrine pública fica em `/loja/<slug-da-loja>`.
+Nunca versione segredos reais: os arquivos `.env` são ignorados pelo Git.
 
-## Data
+## Dados
 
-Only made-up sample data is used in this repository. No real merchant, customer or courier data.
+Este repositório usa apenas dados de exemplo inventados. Nenhum dado real de comerciantes,
+clientes ou entregadores.
 
-## License
+## Licença
 
 [MIT](LICENSE) © 2026 Plínio Almeida

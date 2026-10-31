@@ -1,0 +1,53 @@
+<?php
+
+return [
+    'array' => 'O campo :attribute deve ser uma lista.',
+    'boolean' => 'O campo :attribute deve ser verdadeiro ou falso.',
+    'email' => 'O campo :attribute deve ser um e-mail válido.',
+    'enum' => 'O valor selecionado para :attribute é inválido.',
+    'integer' => 'O campo :attribute deve ser um número inteiro.',
+    'in' => 'O valor selecionado para :attribute é inválido.',
+    'exists' => 'O valor selecionado para :attribute é inválido.',
+    'required' => 'O campo :attribute é obrigatório.',
+    'required_if' => 'O campo :attribute é obrigatório quando :other é :value.',
+    'string' => 'O campo :attribute deve ser um texto.',
+    'unique' => 'Este valor de :attribute já está em uso.',
+    'max' => [
+        'array' => 'O campo :attribute não pode ter mais de :max itens.',
+        'numeric' => 'O campo :attribute não pode ser maior que :max.',
+        'string' => 'O campo :attribute não pode ter mais de :max caracteres.',
+    ],
+    'min' => [
+        'array' => 'O campo :attribute deve ter pelo menos :min itens.',
+        'numeric' => 'O campo :attribute deve ser pelo menos :min.',
+        'string' => 'O campo :attribute deve ter pelo menos :min caracteres.',
+    ],
+
+    'custom' => [],
+
+    'attributes' => [
+        'name' => 'nome',
+        'email' => 'e-mail',
+        'password' => 'senha',
+        'shop_name' => 'nome da loja',
+        'phone' => 'telefone',
+        'description' => 'descrição',
+        'price_cents' => 'preço',
+        'stock' => 'estoque',
+        'low_stock_threshold' => 'limite de estoque baixo',
+        'category_id' => 'categoria',
+        'active' => 'ativo',
+        'image_url' => 'imagem',
+        'delta' => 'quantidade',
+        'reason' => 'motivo',
+        'status' => 'status',
+        'customer_name' => 'nome do cliente',
+        'customer_phone' => 'telefone do cliente',
+        'fulfillment' => 'forma de recebimento',
+        'address' => 'endereço',
+        'notes' => 'observações',
+        'items' => 'itens',
+        'items.*.product_id' => 'produto',
+        'items.*.quantity' => 'quantidade',
+    ],
+];

@@ -10,6 +10,17 @@ enum OrderStatus: string
     case Completed = 'completed';
     case Cancelled = 'cancelled';
 
+    public function label(): string
+    {
+        return match ($this) {
+            self::Pending => 'novo',
+            self::Confirmed => 'confirmado',
+            self::Ready => 'pronto',
+            self::Completed => 'concluído',
+            self::Cancelled => 'cancelado',
+        };
+    }
+
     /** @return list<self> */
     public function next(): array
     {
