@@ -46,8 +46,8 @@ stock). Prices in integer cents.
 - [x] B7 Feature tests for every endpoint, including cross-shop isolation
 
 ### Frontend
-- [ ] F1 Scaffold `web/` (Vite, TS, Tailwind 4, router, query, Vitest), API client with token
-- [ ] F2 Auth pages and guarded routes
+- [x] F1 Scaffold `web/` (Vite, TS, Tailwind 4, router, query, Vitest), API client with token
+- [x] F2 Auth pages and guarded routes
 - [ ] F3 Merchant: categories and products pages, stock adjust, low-stock badge
 - [ ] F4 Public shop page, cart, checkout form
 - [ ] F5 Merchant orders list/detail with status actions
