@@ -4,7 +4,7 @@ Check an item only when it is merged and working. We start with the smallest sli
 works end to end and add one of the three services per version.
 
 ## MVP (v0.1): one merchant sells through a link
-- [ ] Choose and document the tech stack (shared API + mobile app + web app); skeleton, lint, tests, CI
+- [x] Choose and document the tech stack; API and web skeletons, lint, tests, CI (mobile wrapper still to do)
 - [x] Merchant login (single role)
 - [ ] Products and categories (name, price, photo, description)
 - [x] Public catalog page per merchant on the web (shareable link)
