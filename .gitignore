@@ -1,0 +1,28 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+node_modules/
+dist/
+build/
+coverage/
+*.log
+
+# private working notes and third-party instructions (do not publish)
+local/
+docs/(Ext) BYOP*.pdf
+
+# AI tooling/config: never versioned (owner rule, 31/10/2026)
+.claude/
+CLAUDE.md
+AGENTS.md
+.cursor/
+.cursorrules
+.aider*
+.windsurf/
+.github/copilot-instructions.md
+.junie/
+.codex/
+.mcp.json
