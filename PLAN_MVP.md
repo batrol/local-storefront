@@ -48,10 +48,10 @@ stock). Prices in integer cents.
 ### Frontend
 - [x] F1 Scaffold `web/` (Vite, TS, Tailwind 4, router, query, Vitest), API client with token
 - [x] F2 Auth pages and guarded routes
-- [ ] F3 Merchant: categories and products pages, stock adjust, low-stock badge
-- [ ] F4 Public shop page, cart, checkout form
-- [ ] F5 Merchant orders list/detail with status actions
-- [ ] F6 Component tests for the main flows
+- [x] F3 Merchant: categories and products pages, stock adjust, low-stock badge
+- [x] F4 Public shop page, cart, checkout form
+- [x] F5 Merchant orders list/detail with status actions
+- [x] F6 Component tests for the main flows
 
 ### Closing
 - [ ] D1 README run instructions, `.env.example` for api and web
