@@ -8,8 +8,8 @@ automatically on each order.
 
 ## Stack
 
-- `api/`: Laravel 13 (PHP 8.5), Sanctum tokens, SQLite for dev/tests (MySQL-compatible
-  migrations), PHPUnit, Pint, Larastan. Three layers: Controller → Service → Repository.
+- `api/`: Python 3.12+, FastAPI, SQLAlchemy 2, Alembic, bearer tokens, SQLite for dev/tests (migrations
+  work on other databases), pytest, Ruff, mypy. Three layers: router → service → repository.
 - `web/`: React 19, Vite, TypeScript, Tailwind 4, TanStack Query, react-hook-form + zod,
   react-router, Vitest. Capacitor wrapper for the mobile app comes after the MVP screens work.
 
@@ -39,7 +39,7 @@ stock). Prices in integer cents.
 ## Tasks (check when merged and working)
 
 ### Backend
-- [x] B1 Scaffold `api/`, SQLite, Sanctum, Pint, Larastan, architecture notes
+- [x] B1 Scaffold `api/`, SQLite, token auth, Ruff, mypy, architecture notes
 - [x] B2 Auth: register (user + shop with slug), login, logout, me
 - [x] B3 Categories and products CRUD, scoped to the merchant's shop
 - [x] B4 Stock adjustment with movement log, low-stock flag

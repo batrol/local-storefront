@@ -38,25 +38,24 @@ then versions) is in [`ROADMAP.md`](ROADMAP.md).
 
 ## Tech stack
 
-- `api/`: Laravel 13 (PHP 8.5), Sanctum token auth, SQLite in dev and tests, three layers
-  (Controller → Service → Repository). PHPUnit, Pint and Larastan.
+- `api/`: Python 3.12+, FastAPI, SQLAlchemy 2 and Alembic, bearer-token auth, SQLite in dev and tests,
+  three layers (router → service → repository). pytest, Ruff and mypy.
 - `web/`: React 19, Vite, TypeScript, Tailwind 4, TanStack Query, react-hook-form + zod,
   React Router, Vitest + Testing Library.
 - Mobile: the web app will be wrapped with Capacitor after the MVP screens are done.
 
 ## How to run
 
-API (needs PHP 8.5 and Composer):
+API (needs Python 3.12 or newer):
 
 ```sh
 cd api
+python3 -m venv .venv && source .venv/bin/activate
+pip install -e ".[dev]"
 cp .env.example .env
-composer install
-php artisan key:generate
-touch database/database.sqlite
-php artisan migrate
-php artisan serve            # http://127.0.0.1:8000
-php artisan test             # PHPUnit
+alembic upgrade head
+uvicorn app.main:app --reload --port 8000   # http://127.0.0.1:8000, docs at /api/docs
+pytest
 ```
 
 Web (needs Node 22+):

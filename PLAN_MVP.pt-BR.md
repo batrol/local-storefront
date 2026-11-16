@@ -8,8 +8,8 @@ estoque baixa automaticamente a cada pedido.
 
 ## Tecnologias
 
-- `api/`: Laravel 13 (PHP 8.5), tokens Sanctum, SQLite para dev/testes (migrations compatíveis
-  com MySQL), PHPUnit, Pint, Larastan. Três camadas: Controller → Service → Repository.
+- `api/`: Python 3.12+, FastAPI, SQLAlchemy 2, Alembic, tokens bearer, SQLite para dev/testes (migrations
+  funcionam em outros bancos), pytest, Ruff, mypy. Três camadas: router → service → repository.
 - `web/`: React 19, Vite, TypeScript, Tailwind 4, TanStack Query, react-hook-form + zod,
   react-router, Vitest. O empacotamento Capacitor para o app mobile vem depois que as telas do
   MVP funcionarem.
@@ -40,7 +40,7 @@ cancelamento devolve o estoque). Preços em centavos inteiros.
 ## Tarefas (marque quando estiver integrada e funcionando)
 
 ### Backend
-- [x] B1 Esqueleto de `api/`, SQLite, Sanctum, Pint, Larastan, notas de arquitetura
+- [x] B1 Esqueleto de `api/`, SQLite, autenticação por token, Ruff, mypy, notas de arquitetura
 - [x] B2 Autenticação: cadastro (usuário + loja com slug), login, logout, me
 - [x] B3 CRUD de categorias e produtos, restrito à loja do comerciante
 - [x] B4 Ajuste de estoque com registro de movimentações e aviso de estoque baixo

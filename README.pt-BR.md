@@ -39,25 +39,24 @@ além de autenticação, notificações, histórico de auditoria e relatórios. 
 
 ## Tecnologias
 
-- `api/`: Laravel 13 (PHP 8.5), autenticação por token com Sanctum, SQLite em desenvolvimento
-  e testes, três camadas (Controller → Service → Repository). PHPUnit, Pint e Larastan.
+- `api/`: Python 3.12+, FastAPI, SQLAlchemy 2 e Alembic, autenticação por token bearer, SQLite em
+  desenvolvimento e testes, três camadas (router → service → repository). pytest, Ruff e mypy.
 - `web/`: React 19, Vite, TypeScript, Tailwind 4, TanStack Query, react-hook-form + zod,
   React Router, Vitest + Testing Library.
 - Mobile: o app web será empacotado com Capacitor depois que as telas do MVP estiverem prontas.
 
 ## Como rodar
 
-API (precisa de PHP 8.5 e Composer):
+API (precisa de Python 3.12 ou mais novo):
 
 ```sh
 cd api
+python3 -m venv .venv && source .venv/bin/activate
+pip install -e ".[dev]"
 cp .env.example .env
-composer install
-php artisan key:generate
-touch database/database.sqlite
-php artisan migrate
-php artisan serve            # http://127.0.0.1:8000
-php artisan test             # PHPUnit
+alembic upgrade head
+uvicorn app.main:app --reload --port 8000   # http://127.0.0.1:8000, documentação em /api/docs
+pytest
 ```
 
 Web (precisa de Node 22+):

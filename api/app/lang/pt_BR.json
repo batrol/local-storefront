@@ -1,0 +1,20 @@
+{
+    "Invalid credentials.": "Credenciais inválidas.",
+    "Insufficient stock.": "Estoque insuficiente.",
+    "Insufficient stock for :name.": "Estoque insuficiente para :name.",
+    "Invalid category.": "Categoria inválida.",
+    "One or more products are unavailable.": "Um ou mais produtos estão indisponíveis.",
+    "Address is required for delivery.": "O endereço é obrigatório para entrega.",
+    "Cannot change from :from to :to.": "Não é possível mudar de :from para :to.",
+    "Unauthenticated.": "Não autenticado.",
+    "Not found.": "Não encontrado.",
+    "Too many attempts.": "Muitas tentativas. Tente novamente mais tarde.",
+    "The given data was invalid.": "Os dados informados são inválidos.",
+    "(and :count more error)": "(e mais :count erro)",
+    "(and :count more errors)": "(e mais :count erros)",
+    "new": "novo",
+    "confirmed": "confirmado",
+    "ready": "pronto",
+    "completed": "concluído",
+    "cancelled": "cancelado"
+}
